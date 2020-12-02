@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/gif/png" href="img/z.png">
+	<title>Services</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+  <div class="row jumbotron">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+  <blockquote class="blockquote">
+    <h1>Listing Articles</h1>
+    <%= link_to 'New article', new_article_path %>
+  </blockquote>
+	</div>
+  </div>
+</div>
+
+
+<table>
+ <div class="text-center">
+  <tr>
+    <th>Title</th>
+    
+    <th></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      
+      <td><%= article.title %></td>
+     
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table></div>
+</body>
+</html>
